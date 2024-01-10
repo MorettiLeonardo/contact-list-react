@@ -3,7 +3,11 @@ import { List } from './styles'
 
 const ContactList = () => (
   <List>
-    <Contact />
+    <Contact
+      email="leonardomoretti@gmail.com"
+      name="Leonardo Morettti"
+      phone={41995790833}
+    />
   </List>
 )
 

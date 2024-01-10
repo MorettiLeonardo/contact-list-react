@@ -1,12 +1,18 @@
 import Button from '../Button'
 import { Card, Infos } from './styles'
 
-const Contact = () => (
+type Props = {
+  name: string
+  email: string
+  phone: number
+}
+
+const Contact = ({ name, email, phone }: Props) => (
   <Card>
     <Infos>
-      <p>Nome da pessoa</p>
-      <p>Email: email@email.com</p>
-      <p>Número: 41 99999999</p>
+      <p>{name}</p>
+      <p>Email: {email}</p>
+      <p>Número: {phone}</p>
     </Infos>
     <div>
       <Button text="Remover" />
