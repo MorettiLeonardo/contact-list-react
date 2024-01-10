@@ -1,5 +1,17 @@
+import ContactList from './containers/ContactList'
+import Navbar from './containers/Navbar'
+import GlobalStyle, { Container } from './styles/style'
+
 function App() {
-  return <h1>Hello world</h1>
+  return (
+    <>
+      <GlobalStyle />
+      <Container>
+        <Navbar />
+        <ContactList />
+      </Container>
+    </>
+  )
 }
 
 export default App
