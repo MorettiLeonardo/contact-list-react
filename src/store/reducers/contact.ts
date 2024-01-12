@@ -27,3 +27,6 @@ const contactSlice = createSlice({
     }
   }
 })
+
+export const { remover } = contactSlice.actions
+export default contactSlice.reducer
