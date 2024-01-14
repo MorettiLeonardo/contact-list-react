@@ -1,14 +1,24 @@
-import Contact from '../../components/Contact'
-import { List } from './styles'
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 
-const ContactList = () => (
-  <List>
-    <Contact
-      email="leonardomoretti@gmail.com"
-      name="Leonardo Morettti"
-      phone={41995790833}
-    />
-  </List>
-)
+import Contact from '../../components/Contact'
+
+const ContactList = () => {
+  const { itens } = useSelector((state: RootReducer) => state.contact)
+  return (
+    <ul>
+      {itens.map((contact) => (
+        <li key={contact.email}>
+          <Contact
+            email={contact.email}
+            id={contact.id}
+            name={contact.name}
+            phone={contact.number}
+          />
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export default ContactList
