@@ -11,6 +11,13 @@ export const Card = styled.div`
     display: inline;
   }
 `
+export const InfosEdit = styled.textarea`
+  font-size: 16px;
+  width: 100%;
+  resize: none;
+  border: none;
+  background-color: transparent;
+`
 
 export const Infos = styled.div`
   margin-right: 10%;

@@ -13,7 +13,7 @@ const ContactList = () => {
             email={contact.email}
             id={contact.id}
             name={contact.name}
-            phone={contact.number}
+            phoneNumber={contact.phoneNumber}
           />
         </li>
       ))}

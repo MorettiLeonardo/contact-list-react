@@ -1,31 +1,86 @@
 import { useDispatch } from 'react-redux'
-import Button from '../Button'
+
 import { GenericButton } from '../Button/styles'
-import { Card, Infos } from './styles'
-import { remover } from '../../store/reducers/contact'
+import { Card, Infos, InfosEdit } from './styles'
+import { remover, edit } from '../../store/reducers/contact'
+import { useEffect, useState } from 'react'
 
 type Props = {
   id: number
   name: string
   email: string
-  phone: number
+  phoneNumber: number
 }
 
-const Contact = ({ id, name, email, phone }: Props) => {
+const Contact = ({ id, name: originalName, email, phoneNumber }: Props) => {
+  const [isEditing, setIsEditing] = useState(false)
+  const [name, setName] = useState('')
+
+  useEffect(() => {
+    if (originalName.length > 0) {
+      setName(originalName)
+    }
+  }, [originalName])
+
+  function cancelEdit() {
+    setName(originalName)
+    setIsEditing(false)
+  }
+
   const dispatch = useDispatch()
   return (
     <Card>
       <Infos>
-        <p>{id}</p>
-        <p>{name}</p>
-        <p>Email: {email}</p>
-        <p>Número: {phone}</p>
+        <p>Nome:</p>
+        <InfosEdit
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          disabled={!isEditing}
+        />
+        <p>Email:</p>
+        <InfosEdit
+          value={email}
+          onChange={(e) => setName(e.target.value)}
+          disabled={!isEditing}
+        />
+        <p>Número:</p>
+        <InfosEdit
+          value={phoneNumber}
+          onChange={(e) => setName(e.target.value)}
+          disabled={!isEditing}
+        />
       </Infos>
+
       <div>
-        <GenericButton onClick={() => dispatch(remover(id))}>
-          Remover
-        </GenericButton>
-        <Button text="Editar" />
+        {isEditing ? (
+          <>
+            <GenericButton
+              onClick={() =>
+                dispatch(
+                  edit({
+                    id,
+                    name,
+                    phoneNumber,
+                    email
+                  }),
+                  setIsEditing(false)
+                )
+              }
+            >
+              Salvar
+            </GenericButton>
+            <GenericButton onClick={cancelEdit}>Cancelar</GenericButton>
+          </>
+        ) : (
+          <>
+            <GenericButton onClick={() => setIsEditing(true)}>
+              Editar
+            </GenericButton>
+            <GenericButton onClick={() => dispatch(remover(id))}>
+              Remover
+            </GenericButton>
+          </>
+        )}
       </div>
     </Card>
   )
