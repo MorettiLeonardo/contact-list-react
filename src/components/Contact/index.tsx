@@ -9,21 +9,36 @@ type Props = {
   id: number
   name: string
   email: string
-  phoneNumber: number
+  phoneNumber: string
 }
 
-const Contact = ({ id, name: originalName, email, phoneNumber }: Props) => {
+const Contact = ({
+  id,
+  name: originalName,
+  email: originalEmail,
+  phoneNumber: originalPhone
+}: Props) => {
   const [isEditing, setIsEditing] = useState(false)
   const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
 
   useEffect(() => {
     if (originalName.length > 0) {
       setName(originalName)
     }
-  }, [originalName])
+    if (originalEmail.length > 0) {
+      setEmail(originalEmail)
+    }
+    if (originalPhone.length > 0) {
+      setPhone(originalPhone)
+    }
+  }, [originalName, originalEmail, originalPhone])
 
   function cancelEdit() {
     setName(originalName)
+    setEmail(originalEmail)
+    setPhone(originalPhone)
     setIsEditing(false)
   }
 
@@ -33,20 +48,23 @@ const Contact = ({ id, name: originalName, email, phoneNumber }: Props) => {
       <Infos>
         <p>Nome:</p>
         <InfosEdit
+          active={isEditing}
           value={name}
           onChange={(e) => setName(e.target.value)}
           disabled={!isEditing}
         />
         <p>Email:</p>
         <InfosEdit
+          active={isEditing}
           value={email}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           disabled={!isEditing}
         />
         <p>Número:</p>
         <InfosEdit
-          value={phoneNumber}
-          onChange={(e) => setName(e.target.value)}
+          active={isEditing}
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
           disabled={!isEditing}
         />
       </Infos>
@@ -60,7 +78,7 @@ const Contact = ({ id, name: originalName, email, phoneNumber }: Props) => {
                   edit({
                     id,
                     name,
-                    phoneNumber,
+                    phoneNumber: phone,
                     email
                   }),
                   setIsEditing(false)

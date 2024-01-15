@@ -2,17 +2,10 @@ import styled from 'styled-components'
 
 export const Nav = styled.nav`
   text-align: center;
-  padding-top: 6%;
+  margin-top: 10%;
+`
 
-  div {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-
-    button {
-      width: 70px;
-      margin-left: 16px;
-    }
-  }
+export const Button = styled.button`
+  border: none;
+  cursor: pointer;
 `

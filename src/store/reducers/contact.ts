@@ -11,13 +11,13 @@ const initialState: ContactState = {
       id: 1,
       name: 'Leonardo',
       email: 'leonardo@gmail.com',
-      phoneNumber: 4199999999
+      phoneNumber: '4199999999'
     },
     {
       id: 2,
       name: 'Moretti',
       email: 'moretti@gmail.com',
-      phoneNumber: 4198765432
+      phoneNumber: '4198765432'
     }
   ]
 }

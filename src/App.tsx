@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux'
 
 import ContactList from './containers/ContactList'
-import Navbar from './containers/Navbar'
 import GlobalStyle, { Container } from './styles/style'
 import store from './store'
+import Navbar from './containers/Navbar'
 
 function App() {
   return (
