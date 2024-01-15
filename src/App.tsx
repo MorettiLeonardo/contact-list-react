@@ -5,6 +5,7 @@ import store from './store'
 
 import GlobalStyle, { Container } from './styles/style'
 import Home from './pages/Home'
+import Register from './pages/Register'
 
 const routers = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const routers = createBrowserRouter([
   },
   {
     path: 'novo',
-    element: <h1>Novo contato</h1>
+    element: <Register />
   }
 ])
 
