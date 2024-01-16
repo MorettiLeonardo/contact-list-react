@@ -39,9 +39,27 @@ const contactSlice = createSlice({
       if (contactIndex >= 0) {
         state.itens[contactIndex] = action.payload
       }
+    },
+    register: (state, action: PayloadAction<Omit<Contact, 'id'>>) => {
+      const contactAlreadyExist = state.itens.find(
+        (c) =>
+          c.email.toLocaleLowerCase() ===
+          action.payload.email.toLocaleLowerCase()
+      )
+
+      if (contactAlreadyExist) {
+        alert('Já existe um contato com esse nome')
+      } else {
+        const lastContact = state.itens[state.itens.length - 1]
+        const newContact = {
+          ...action.payload,
+          id: lastContact ? lastContact.id + 1 : 1
+        }
+        state.itens.push(newContact)
+      }
     }
   }
 })
 
-export const { remover, edit } = contactSlice.actions
+export const { remover, edit, register } = contactSlice.actions
 export default contactSlice.reducer

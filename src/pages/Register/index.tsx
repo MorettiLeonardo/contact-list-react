@@ -1,3 +1,5 @@
-const Register = () => <h1>Teste</h1>
+import RegisterContact from '../../containers/RegisterContact'
+
+const Register = () => <RegisterContact />
 
 export default Register

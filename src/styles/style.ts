@@ -17,4 +17,11 @@ export const Container = styled.div`
   background-color: #eee;
 `
 
+export const GenericButton = styled.button`
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px;
+`
+
 export default GlobalStyle

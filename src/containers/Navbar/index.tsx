@@ -1,11 +1,12 @@
+import ButtonRegister from '../../components/ButtonRegister'
 import Title from '../../components/Title'
-import { Nav, Button } from './styles'
+import { Nav } from './styles'
 
 const Navbar = () => {
   return (
     <Nav>
       <Title TitleText="Lista de contatos" />
-      <Button>Adicionar contato</Button>
+      <ButtonRegister />
     </Nav>
   )
 }

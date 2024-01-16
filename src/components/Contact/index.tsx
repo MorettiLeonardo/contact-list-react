@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 
-import { GenericButton } from '../Button/styles'
+import { GenericButton } from '../../styles/style'
 import { Card, Infos, InfosEdit } from './styles'
 import { remover, edit } from '../../store/reducers/contact'
 import { useEffect, useState } from 'react'
