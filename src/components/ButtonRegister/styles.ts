@@ -7,6 +7,6 @@ export const LinkStyled = styled.button`
   text-decoration: none;
   cursor: pointer;
   font-size: 16px;
-  background-color: #eee;
-  color: #000;
+  background-color: #95a5a6;
+  color: #ecf0f1;
 `

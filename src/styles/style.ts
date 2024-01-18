@@ -2,10 +2,9 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #ccc;
+    background-color: #ecf0f1;
   }
-
-  * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -28,6 +27,9 @@ export const GenericButton = styled.button`
   padding: 8px;
   margin-bottom: 8px;
   border: none;
+  background-color: #95a5a6;
+  color: #ecf0f1;
+  border-radius: 1rem;
 `
 
 export default GlobalStyle
