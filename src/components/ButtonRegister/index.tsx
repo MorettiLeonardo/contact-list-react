@@ -1,7 +1,13 @@
-import { Link } from './styles'
+import { Link as RouterLink } from 'react-router-dom'
+
+import { LinkStyled } from './styles'
 
 const ButtonRegister = () => {
-  return <Link href="/novo">Adicionar contato</Link>
+  return (
+    <RouterLink to="/novo">
+      <LinkStyled>Adicionar contato</LinkStyled>
+    </RouterLink>
+  )
 }
 
 export default ButtonRegister

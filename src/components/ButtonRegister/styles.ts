@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Link = styled.a`
+export const LinkStyled = styled.button`
   border: 1px solid black;
   padding: 4px;
   border-radius: 1rem;

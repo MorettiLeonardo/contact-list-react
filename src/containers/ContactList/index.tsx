@@ -8,7 +8,7 @@ const ContactList = () => {
   return (
     <ul>
       {itens.map((contact) => (
-        <li key={contact.email}>
+        <li key={contact.id}>
           <Contact
             email={contact.email}
             id={contact.id}

@@ -6,20 +6,7 @@ type ContactState = {
 }
 
 const initialState: ContactState = {
-  itens: [
-    {
-      id: 1,
-      name: 'Leonardo',
-      email: 'leonardo@gmail.com',
-      phoneNumber: '4199999999'
-    },
-    {
-      id: 2,
-      name: 'Moretti',
-      email: 'moretti@gmail.com',
-      phoneNumber: '4198765432'
-    }
-  ]
+  itens: []
 }
 
 const contactSlice = createSlice({
@@ -41,21 +28,28 @@ const contactSlice = createSlice({
       }
     },
     register: (state, action: PayloadAction<Omit<Contact, 'id'>>) => {
-      const contactAlreadyExist = state.itens.find(
-        (c) =>
-          c.email.toLocaleLowerCase() ===
-          action.payload.email.toLocaleLowerCase()
-      )
+      const contactAlreadyExist = state.itens.some((c) => {
+        const result =
+          c.email.trim().toLowerCase() ===
+          action.payload.email.trim().toLowerCase()
+        return result
+      })
 
       if (contactAlreadyExist) {
         alert('Já existe um contato com esse nome')
+        return state
       } else {
         const lastContact = state.itens[state.itens.length - 1]
-        const newContact = {
+        const newContact: Contact = {
           ...action.payload,
           id: lastContact ? lastContact.id + 1 : 1
         }
-        state.itens.push(newContact)
+        const updatedItens = [...state.itens, newContact]
+
+        return {
+          ...state,
+          itens: updatedItens
+        }
       }
     }
   }

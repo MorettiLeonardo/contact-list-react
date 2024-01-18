@@ -11,7 +11,6 @@ type Props = {
   email: string
   phoneNumber: string
 }
-
 const Contact = ({
   id,
   name: originalName,
@@ -43,29 +42,27 @@ const Contact = ({
   }
 
   const dispatch = useDispatch()
+
   return (
     <Card>
       <Infos>
         <p>Nome:</p>
         <InfosEdit
-          active={isEditing}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          disabled={!isEditing}
+          readOnly={!isEditing}
         />
         <p>Email:</p>
         <InfosEdit
-          active={isEditing}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          disabled={!isEditing}
+          readOnly={!isEditing}
         />
         <p>Número:</p>
         <InfosEdit
-          active={isEditing}
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          disabled={!isEditing}
+          readOnly={!isEditing}
         />
       </Infos>
 
@@ -73,17 +70,15 @@ const Contact = ({
         {isEditing ? (
           <>
             <GenericButton
-              onClick={() =>
-                dispatch(
-                  edit({
-                    id,
-                    name,
-                    phoneNumber: phone,
-                    email
-                  }),
+              onClick={() => {
+                // Adicione validações de campos, se necessário
+                if (name && email && phone) {
+                  dispatch(edit({ id, name, phoneNumber: phone, email }))
                   setIsEditing(false)
-                )
-              }
+                } else {
+                  alert('Preencha todos os campos antes de salvar.')
+                }
+              }}
             >
               Salvar
             </GenericButton>
