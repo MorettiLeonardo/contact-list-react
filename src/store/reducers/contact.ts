@@ -36,7 +36,7 @@ const contactSlice = createSlice({
       })
 
       if (contactAlreadyExist) {
-        alert('Já existe um contato com esse nome')
+        alert('Já existe um contato com esse email')
         return state
       } else {
         const lastContact = state.itens[state.itens.length - 1]

@@ -3,13 +3,10 @@ import styled from 'styled-components'
 export const Card = styled.div`
   padding: 24px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-  :last-child {
-    display: inline;
-  }
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-top: 16px;
+  max-width: 500px;
 `
 export const InfosEdit = styled.textarea`
   font-size: 16px;
