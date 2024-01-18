@@ -22,14 +22,19 @@ export const Container = styled.div`
 
 export const GenericButton = styled.button`
   cursor: pointer;
-  width: 100%;
-  border: 1px solid #ccc;
-  padding: 8px;
-  margin-bottom: 8px;
   border: none;
+  border-radius: 1rem;
+  padding: 10px;
+  margin-bottom: 8px;
   background-color: #95a5a6;
   color: #ecf0f1;
-  border-radius: 1rem;
+  display: inline-block;
+  font-weight: bold;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: rgba(129, 165, 166, 0.9);
+  }
 `
 
 export default GlobalStyle

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 
 import { GenericButton } from '../../styles/style'
-import { Card, Infos, InfosEdit } from './styles'
+import { Card, InfosEdit } from './styles'
 import { remover, edit } from '../../store/reducers/contact'
 import { useEffect, useState } from 'react'
 
@@ -45,7 +45,7 @@ const Contact = ({
 
   return (
     <Card>
-      <Infos>
+      <div>
         <p>Nome:</p>
         <InfosEdit
           value={name}
@@ -64,11 +64,11 @@ const Contact = ({
           onChange={(e) => setPhone(e.target.value)}
           readOnly={!isEditing}
         />
-      </Infos>
+      </div>
 
       <div>
         {isEditing ? (
-          <>
+          <div>
             <GenericButton
               onClick={() => {
                 // Adicione validações de campos, se necessário
@@ -83,16 +83,16 @@ const Contact = ({
               Salvar
             </GenericButton>
             <GenericButton onClick={cancelEdit}>Cancelar</GenericButton>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <GenericButton onClick={() => setIsEditing(true)}>
               Editar
             </GenericButton>
             <GenericButton onClick={() => dispatch(remover(id))}>
               Remover
             </GenericButton>
-          </>
+          </div>
         )}
       </div>
     </Card>

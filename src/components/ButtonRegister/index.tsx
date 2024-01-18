@@ -1,11 +1,11 @@
 import { Link as RouterLink } from 'react-router-dom'
 
-import { LinkStyled } from './styles'
+import { GenericButton } from '../../styles/style'
 
 const ButtonRegister = () => {
   return (
     <RouterLink to="/novo">
-      <LinkStyled>Adicionar contato</LinkStyled>
+      <GenericButton>Adicionar contato</GenericButton>
     </RouterLink>
   )
 }

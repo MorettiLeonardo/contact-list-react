@@ -5,7 +5,7 @@ import { register as RegisterAction } from '../../store/reducers/contact'
 
 import Title from '../../components/Title'
 
-import { FormContact } from './styles'
+import { Field, FormContact } from './styles'
 import { FormEvent, useState } from 'react'
 import { GenericButton } from '../../styles/style'
 
@@ -34,7 +34,7 @@ const RegisterContact = () => {
     <FormContact onSubmit={register}>
       <Title TitleText="Adicionar Contato" />
       <div>
-        <input
+        <Field
           type="text"
           name="name"
           id="name"
@@ -43,7 +43,7 @@ const RegisterContact = () => {
         />
       </div>
       <div>
-        <input
+        <Field
           type="email"
           name="email"
           id="email"
@@ -52,7 +52,7 @@ const RegisterContact = () => {
         />
       </div>
       <div>
-        <input
+        <Field
           type="number"
           name="phoneNumber"
           id="phoneNumber"

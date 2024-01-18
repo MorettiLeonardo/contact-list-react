@@ -8,18 +8,19 @@ export const FormContact = styled.form`
   height: 100vh;
   font-size: 16px;
 
-  input {
-    border: none;
-    padding: 8px;
-    margin-bottom: 8px;
-    width: 300px;
-    border-radius: 1rem;
+  h1 {
+    font-size: 27px;
   }
 
   button {
     width: 300px;
-    background-color: #95a5a6;
-    color: #ecf0f1;
-    border-radius: 1rem;
   }
+`
+
+export const Field = styled.input`
+  border: none;
+  padding: 10px;
+  margin-bottom: 8px;
+  width: 300px;
+  border-radius: 1rem;
 `
